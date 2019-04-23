@@ -13,6 +13,7 @@ var Idiom = require("./models/idioms.js");
 // Connect to MongoDB
 mongoose.connect("mongodb://localhost/idioms_db", { useNewUrlParser: true });
 
+/*
 // Create dummy data to save to the database
 var data = {
     idiom: "a heavy purse makes a light heart",
@@ -29,6 +30,7 @@ var data = {
       // If an error occurs, log the error message
       console.log(err.message);
     });
+*/
   
 
 var PORT = 3000;
@@ -124,7 +126,7 @@ app.get("/idioms/search/:searchTerm", function(req, res) {
 });
 
 // Route to go out and scrape for idioms that have an entered string
-app.get("/idioms/scrape/:searchTerm", function(req, res) {
+app.post("/idioms/scrape/:searchTerm", function(req, res) {
 
     console.log("api");
     scrape(req.params.searchTerm)
@@ -142,7 +144,7 @@ app.get("/idioms/scrape/:searchTerm", function(req, res) {
                 // If an error occurs, log the error message
                 console.log(err.message);
             });
-        })
+        });
         
 
         res.json(foundIdioms);

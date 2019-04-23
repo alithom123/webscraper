@@ -15,14 +15,21 @@
 
     <form class="clearfix mb-4" action="POST">
         <div class="form-group">
-          <label for="search-title">Scrape for idioms</label>
-          <textarea class="form-control" id="searchTitle" aria-describedby="search-title" placeholder="Elasticsearch on NodeJS"></textarea>
+          <label for="scrapeTerm">Scrape Idioms by Term</label>
+          <textarea class="form-control" id="scrapeTerm" aria-describedby="scrapeTerm" placeholder="love"></textarea>
         </div>
-        <button id="submitSearchTitle" class="btn btn-primary float-right">Submit</button>
+        <button id="scrapeButton" class="btn btn-primary">Scrape</button>
     </form>
 
+    <!-- <form class="clearfix mb-4"> -->
+        <!-- <div class="form-group"> -->
+          <!-- <label for="search-title">Get All Idioms</label> -->
+        <!-- </div> -->
+        <button id="getAllButton" class="btn btn-primary">Get All</button>
+    <!-- </form> -->
 
-    <div>
+
+    <div id="tableDiv">
         Insert content here.
     </div>
 
@@ -32,5 +39,6 @@
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
   </body>
 </html>
