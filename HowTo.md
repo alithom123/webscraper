@@ -11,7 +11,7 @@ App listening on port 3000
 ```
 
 * Add route to a basic html page. 
-* Create matching index.html page.
+* Create index.html page make sure it gets served.
 
 <!doctype html>
 <html lang="en">
@@ -53,4 +53,15 @@ App listening on port 3000
 
 https://i.gyazo.com/bb1f8151b26eb12c655ec9415a9350cc.png
 
+
+* Add axios and cheerio
+* npm install axios cheerio
+* Explain both.
+* Make an axios call that gets your website
+
+https://i.gyazo.com/8397e108ade9c8280499e8aaa216b7c4.png
+https://i.gyazo.com/4f79e4248540386fcb43a0364eff34d8.png
+
+* You should see a response and a bunch of html.
+* Now let's see if we can use cheerio to pull out the idioms we want. 
 
