@@ -1,0 +1,11 @@
+{
+  "name": "18-mongo-mongoose",
+  "version": "1.0.0",
+  "description": "This application was made to learn how to do web-scraping using mongo, mongoose, cheerio, and express.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
