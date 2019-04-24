@@ -11,7 +11,11 @@ var mongoose = require("mongoose");
 var Idiom = require("./models/idioms.js");
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost/idioms_db", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/idioms_db", { useNewUrlParser: true });
+
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/idioms_db";
+mongoose.connect(MONGODB_URI);
 
 /*
 // Create dummy data to save to the database

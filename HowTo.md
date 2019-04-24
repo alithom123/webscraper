@@ -186,4 +186,20 @@ https://i.gyazo.com/87d524bbce1d1b776f9ed1c0b1f24e61.png
 
     "start": "node app.js"
 
+* Change to dynamic port
+
+```js
+   var PORT = process.env.PORT || 3000;
+```
+
+* add on mongo to heroku instance.
+
+heroku addons:create mongolab
+
+* make connection to mongoose dynamic uri to work with heroku
+
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/idioms_db";
+mongoose.connect(MONGODB_URI);
+
 * 
