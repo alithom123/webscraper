@@ -15,21 +15,24 @@ $(document).ready(function () {
 
         getAll: function() {
             return $.ajax({
-                url: "http://localhost:3000/" + term,
+                // url: "http://localhost:3000/" + term,
+                url: "/",
                 type: "GET"
             });
         },
 
         getTerm: function(term) {
             return $.ajax({
-              url: "http://localhost:3000/idioms/search/" + term,
+            //   url: "http://localhost:3000/idioms/search/" + term,
+              url: "/idioms/search/" + term,
               type: "GET"
             });
         },
 
         scrapeTerm: function(term) {
           return $.ajax({
-            url: "http://localhost:3000/idioms/scrape/" + term,
+            // url: "http://localhost:3000/idioms/scrape/" + term,
+            url: "/idioms/scrape/" + term,
             type: "POST"
           });
         }
