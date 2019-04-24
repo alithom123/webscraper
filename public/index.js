@@ -4,6 +4,8 @@ $(document).ready(function () {
     // Get references to page elements
     var $scrapeTerm = $("#scrapeTerm");
     var $scrapeButton = $("#scrapeButton");
+    var $searchTerm = $("#searchTerm");
+    var $searchButton = $("#searchButton");
     var $getAllButton = $("#getAllButton");
     var $logs = $("#log");
 
@@ -21,7 +23,7 @@ $(document).ready(function () {
             });
         },
 
-        getTerm: function(term) {
+        searchTerm: function(term) {
             return $.ajax({
             //   url: "http://localhost:3000/idioms/search/" + term,
               url: "/idioms/search/" + term,
@@ -65,6 +67,32 @@ $(document).ready(function () {
       };
     
 
+      var handleSearchSubmit =  function(event) {
+        console.log("handling search submit");
+        event.preventDefault();
+    
+        var searchTerm = $searchTerm.val().trim();
+    
+        searchAPI.searchTerm(searchTerm).then(function(resp) {
+    
+            var data = [];
+            // data[0] = ["ID", "Title", "Meta Description", "Meta Keywords", "Categories", "Tags", "Status"];
+            data[0] = ["_id", "idiom", "link", "__v"];
+            // var hitsArray = resp.hits.hits;
+
+            // hitsArray.forEach(function(eachArticle) {
+            resp.forEach(function(eachIdiom) {
+              data.push([eachIdiom._id, eachIdiom.idiom, eachIdiom.link, eachIdiom._v]);
+            });
+    
+            makeTable($("#tableDiv"), data);
+        });
+      
+        // Clear out search field
+        $searchTerm.val("");
+      };
+    
+
 
       /* Utilities */
     
@@ -87,6 +115,7 @@ $(document).ready(function () {
     
     // Add event listeners
     $scrapeButton.on("click", handleScrapeSubmit);
+    $searchButton.on("click", handleSearchSubmit);
     
 
     $getAllButton.on("click", function() {
@@ -117,5 +146,6 @@ $(document).ready(function () {
             // dataType: dataType
        });
     });
+
 
 });
