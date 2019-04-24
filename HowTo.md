@@ -144,5 +144,46 @@ app.get("/idioms", function(req, res) {
   });
   ```
 
-  
+  * Verify route works. 
+  https://i.gyazo.com/d9a4e151ac2a562a329611406ad5dee5.png
 
+  * Create a route that gets idioms that contain a string you type in.
+
+```js
+
+  // Route for retrieving idioms that have an entered string
+app.get("/idioms/search/:searchTerm", function(req, res) {
+  Idiom.find({ "idiom": { "$regex": req.params.searchTerm, "$options": "i" } })
+    .then(function(foundIdioms) {
+        res.json(foundIdioms);
+    })
+    .catch(function(err) {
+        res.json(err);
+    });
+});
+```
+
+  https://i.gyazo.com/226cfadaf459abb26ead2a686f20c8b8.png
+  https://i.gyazo.com/42926ab84ac1933911d9d5f90715044e.png
+
+  * Create a route that goes and scrapes based on the term you type in.
+
+
+
+  ...
+
+  * Deploy to Heroku
+  * heroku login
+  * heroku create
+  https://peaceful-bastion-30825.herokuapp.com/ 
+    https://git.heroku.com/peaceful-bastion-30825.git
+
+* git remote -v
+
+https://i.gyazo.com/87d524bbce1d1b776f9ed1c0b1f24e61.png
+
+* add start script to package.json
+
+    "start": "node app.js"
+
+* 
