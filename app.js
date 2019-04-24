@@ -1,10 +1,7 @@
 var express = require("express");
-// Require axios to get html of a webpage
-var axios = require("axios");
-// Require cheerio to allow you to scrape html page in a fashion similar to jquery
-var cheerio = require("cheerio");
-// Require Mongoose to store idioms in database
-var mongoose = require("mongoose");
+var axios = require("axios"); // Require axios to get html of a webpage
+var cheerio = require("cheerio"); // Require cheerio to allow you to scrape html page in a fashion similar to jquery
+var mongoose = require("mongoose"); // Require Mongoose to store idioms in database
 
 
 // Requiring the `Idioms` model for accessing the `idioms` collection
