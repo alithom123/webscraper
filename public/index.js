@@ -92,7 +92,7 @@ $(document).ready(function () {
     $getAllButton.on("click", function() {
         $.ajax({
             type: "GET",
-            url: "http://localhost:3000/idioms",
+            url: "/idioms",
             // data: data,
             success: function(response) {
                 console.log("getall response:");
