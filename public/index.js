@@ -5,6 +5,7 @@ $(document).ready(function () {
     var $scrapeTerm = $("#scrapeTerm");
     var $scrapeButton = $("#scrapeButton");
     var $getAllButton = $("#getAllButton");
+    var $logs = $("#log");
 
     console.log($getAllButton);
     
@@ -45,7 +46,7 @@ $(document).ready(function () {
     
             var data = [];
             // data[0] = ["ID", "Title", "Meta Description", "Meta Keywords", "Categories", "Tags", "Status"];
-            data[0] = ["id", "idiom", "link", "version"];
+            data[0] = ["_id", "idiom", "link", "__v"];
             // var hitsArray = resp.hits.hits;
 
             // hitsArray.forEach(function(eachArticle) {
@@ -91,8 +92,23 @@ $(document).ready(function () {
             url: "http://localhost:3000/idioms",
             // data: data,
             success: function(response) {
+                console.log("getall response:");
                 console.log(response);
-                makeTable($("#tableDiv"), response);
+                // response.unshift({"_id":"", "idiom":"", "link":"", "__v":""});
+
+                var data = [];
+                // data[0] = ["ID", "Title", "Meta Description", "Meta Keywords", "Categories", "Tags", "Status"];
+                data[0] = ["_id", "idiom", "link", "__v"];
+                // var hitsArray = resp.hits.hits;
+    
+                // hitsArray.forEach(function(eachArticle) {
+                response.forEach(function(eachIdiom) {
+                  data.push([eachIdiom._id, eachIdiom.idiom, eachIdiom.link, eachIdiom.__v]);
+                });
+        
+                makeTable($("#tableDiv"), data);
+
+                // makeTable($("#tableDiv"), response);
             }
             // ,
             // dataType: dataType
