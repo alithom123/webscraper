@@ -51,12 +51,14 @@ $(document).ready(function () {
     
             var data = [];
             // data[0] = ["ID", "Title", "Meta Description", "Meta Keywords", "Categories", "Tags", "Status"];
-            data[0] = ["_id", "idiom", "link", "__v"];
+            // data[0] = ["_id", "idiom", "link", "__v"];
+            data[0] = ["idiom"];
             // var hitsArray = resp.hits.hits;
 
             // hitsArray.forEach(function(eachArticle) {
             resp.forEach(function(eachIdiom) {
-              data.push([eachIdiom._id, eachIdiom.idiom, eachIdiom.link, eachIdiom._v]);
+            //   data.push([eachIdiom._id, eachIdiom.idiom, eachIdiom.link, eachIdiom._v]);
+              data.push([eachIdiom.idiom]);
             });
     
               var articlesTable = makeTable($("#tableDiv"), data);
@@ -77,12 +79,14 @@ $(document).ready(function () {
     
             var data = [];
             // data[0] = ["ID", "Title", "Meta Description", "Meta Keywords", "Categories", "Tags", "Status"];
-            data[0] = ["_id", "idiom", "link", "__v"];
+            // data[0] = ["_id", "idiom", "link", "__v"];
+            data[0] = ["idiom"];
             // var hitsArray = resp.hits.hits;
 
             // hitsArray.forEach(function(eachArticle) {
             resp.forEach(function(eachIdiom) {
-              data.push([eachIdiom._id, eachIdiom.idiom, eachIdiom.link, eachIdiom._v]);
+            //   data.push([eachIdiom._id, eachIdiom.idiom, eachIdiom.link, eachIdiom._v]);
+              data.push([eachIdiom.idiom]);
             });
     
             makeTable($("#tableDiv"), data);
@@ -130,12 +134,14 @@ $(document).ready(function () {
 
                 var data = [];
                 // data[0] = ["ID", "Title", "Meta Description", "Meta Keywords", "Categories", "Tags", "Status"];
-                data[0] = ["_id", "idiom", "link", "__v"];
+                // data[0] = ["_id", "idiom", "link", "__v"];
+                data[0] = ["idiom"];
                 // var hitsArray = resp.hits.hits;
     
                 // hitsArray.forEach(function(eachArticle) {
                 response.forEach(function(eachIdiom) {
-                  data.push([eachIdiom._id, eachIdiom.idiom, eachIdiom.link, eachIdiom.__v]);
+                //   data.push([eachIdiom._id, eachIdiom.idiom, eachIdiom.link, eachIdiom.__v]);
+                  data.push([eachIdiom.idiom]);
                 });
         
                 makeTable($("#tableDiv"), data);
